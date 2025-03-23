@@ -1,0 +1,546 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('lapangan_CPO.jpeg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navbar styling */
+.navbar {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    position: relative;
+    color: white;
+    padding: 10px 20px;
+    z-index: 999;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    gap: -10px;
+}
+
+.menu-item {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 40px;
+    margin-right: 4%;
+    cursor: pointer;
+}
+
+.logo-cpo {
+    width: auto;
+    height: 40px;
+    margin-left: 40px;
+    margin-right: 4%;
+}
+
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #5E0708;
+    color: white;
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar .menu-item {
+    padding: 15px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: background 0.3s, transform 0.2s;
+    text-align: left;
+    text-decoration: none;
+    margin: 5px 0;
+    list-style: none;
+    color: white;
+    width: 220px;
+    margin-left: -5px;
+}
+
+.sidebar .menu-item a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+
+.sidebar .menu-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Overlay styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 500;
+}
+
+.overlay.show {
+    display: block;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    color: black;
+    margin-left: 3%;
+}
+
+/* sidebar */
+@media (min-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .menu-button {
+        display: none;
+    }
+
+}
+
+/* hide menu */
+@media (max-width: 767px) {
+    .navbar-menu {
+        display: none;
+    }
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 8px 0;
+    transition: all;
+    transition-duration: 300ms;
+    border-bottom: 1px solid rgba(220, 20, 60, 0);
+}
+
+nav ul li a:hover {
+    color: crimson;
+    border-bottom: 1px solid crimson;
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 300px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+
+/* Dropdown Menu untuk Navbar Kecil */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    nav.active ul {
+        display: block;
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+    }
+}
+
+/* Navbar */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 5px 10px;
+    }
+
+    .profile-pic {
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu-button {
+        font-size: 20px;
+    }
+
+    .logo-cpo {
+        display: none;
+    }
+}
+
+/* sub menu */
+@media screen and (max-width: 768px) {
+    .sub-menu-wrap {
+        width: 200px;
+        right: 2%;
+        font-size: 12px;
+    }
+
+    .sub-menu-wrap img {
+        max-width: 25%;
+        height: auto;
+    }
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info h3 {
+    font-weight: 500;
+    color: #24262b;
+}
+
+.user-info img {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.sub-menu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub-menu-link p {
+    width: 100%;
+
+}
+
+.sub-menu-link img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link span {
+    font-size: 22px;
+    transition: transform 0.3s;
+}
+
+.sub-menu-link:hover span {
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+    font-weight: 600;
+}
+
+/* booking */
+.booking-container {
+    margin: 50px;
+}
+
+.booking {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 25px;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #444;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+
+input:focus,
+select:focus {
+    border-color: #a00d0d;
+    outline: none;
+}
+
+.pay-btn {
+    width: 100%;
+    padding: 14px;
+    background: #a71616;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background 0.3s ease;
+}
+
+.pay-btn.disabled {
+    background-color: #333;
+    cursor: not-allowed;
+}
+
+.pay-btn:hover {
+    background: #5b0808;
+}
+
+.harga-container {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.harga-container p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0;
+}
+
+.harga-container span {
+    color: #d9534f;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.kategori-harga {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.kategori-harga p {
+    padding: 10px;
+}
+
+.kategori-harga ul li {
+    list-style: none;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.note {
+    color: red;
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
+    right: 0;
+}
+
+/* booking */
+@media (max-width: 600px) {
+    .booking {
+        padding: 20px;
+    }
+
+    .booking-container {
+        margin: 50px 5px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .kategori-harga ul li {
+        font-size: 14px;
+    }
+
+    .note {
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .pay-btn {
+        margin-bottom: 20px;
+    }
+}
+
+/* Animasi Navbar Mengecil Saat Scroll */
+.navbar {
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar.shrink {
+    padding: 5px 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Slide-in Smooth */
+.sidebar {
+    transition: transform 0.4s ease-in-out, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.sidebar.open {
+    opacity: 1;
+}
+
+/* Hover Efek di Sidebar */
+.sidebar .menu-item {
+    transition: background 0.3s, transform 0.2s ease-in-out;
+}
+
+.sidebar .menu-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(5px);
+}
+
+/* Fade-in Animasi untuk Booking Form */
+.booking {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi Hover Tombol Bayar */
+.pay-btn {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.pay-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left 0.3s ease-in-out;
+}
+
+.pay-btn:hover::before {
+    left: 100%;
+}
